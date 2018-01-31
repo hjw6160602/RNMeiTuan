@@ -1,5 +1,5 @@
 /**
- *  ShopViewController.js
+ *  HomeViewController.js
  *  RNMeiTuan
  *
  *  Created by SaiDicaprio on 18-1-31.
@@ -14,12 +14,12 @@ import {
     View
 } from 'react-native';
 
-class ShopViewController extends Component {
+class HomeViewController extends Component {
     render() {
         return (
             <View style={styles.container}>
                 <Text style={styles.welcome}>
-                    商城
+                    首页
                 </Text>
             </View>
         );
@@ -42,4 +42,4 @@ const styles = StyleSheet.create({
 });
 
 // 输出组件类
-module.exports = ShopViewController;
+module.exports = HomeViewController;
