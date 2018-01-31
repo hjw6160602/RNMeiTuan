@@ -11,7 +11,7 @@ import TabNavigator from 'react-native-tab-navigator'
 import {
     StyleSheet,
     View,
-    Text,
+    Platform,
     Image,
 } from 'react-native'
 
@@ -26,39 +26,44 @@ export default class MainViewController extends Component {
 
     render(){
         return(
-            <View style={styles.containerStyle}>
-                <TabNavigator>
-                    <TabNavigator.Item
-                        title='首页'
-                        renderIcon={() => <Image source={{uri:'icon_tabbar_homepage'}} style={styles.iconStyle}/>}
-                        renderSelectedIcon={() => <Image source={{uri:'icon_tabbar_homepage_selected'}} style={styles.iconStyle}/>}
-                        onPress={() => {}}
-                    />
-                    <TabNavigator.Item
-                        title='商家'
-                    />
-                    <TabNavigator.Item
-                        title='我的'
-                    />
-                    <TabNavigator.Item
-                        title='更多'
-                    />
-                </TabNavigator>
-            </View>
+            <TabNavigator>
+                {/*首页*/}
+                <TabNavigator.Item
+                    title='首页'
+                    renderIcon={() => <Image source={{uri:'icon_tabbar_homepage'}} style={styles.iconStyle}/>}
+                    renderSelectedIcon={() => <Image source={{uri:'icon_tabbar_homepage_selected'}} style={styles.iconStyle}/>}
+                >
+                </TabNavigator.Item>
+                {/*商家*/}
+                <TabNavigator.Item
+                    title='商家'
+                    renderIcon={() => <Image source={{uri: 'icon_tabbar_merchant_normal'}} style={styles.iconStyle}/>} // 图标
+                    renderSelectedIcon={() =><Image source={{uri: 'icon_tabbar_merchant_selected'}} style={styles.iconStyle}/>}   // 选中的图标
+                >
+                </TabNavigator.Item>
+                {/*我的*/}
+                <TabNavigator.Item
+                    title='我的'
+                    renderIcon={() => <Image source={{uri: 'icon_tabbar_mine'}} style={styles.iconStyle}/>} // 图标
+                    renderSelectedIcon={() =><Image source={{uri: 'icon_tabbar_mine_selected'}} style={styles.iconStyle}/>}   // 选中的图标
+                >
+                </TabNavigator.Item>
+                {/*更多*/}
+                <TabNavigator.Item
+                    title='更多'
+                    renderIcon={() => <Image source={{uri: 'icon_tabbar_misc'}} style={styles.iconStyle}/>} // 图标
+                    renderSelectedIcon={() =><Image source={{uri: 'icon_tabbar_misc_selected'}} style={styles.iconStyle}/>}   // 选中的图标
+                >
+                </TabNavigator.Item>
+            </TabNavigator>
         )
     }
 }
 
 const styles = StyleSheet.create({
-    containerStyle:{
-        flex:1,
-        justifyContent:'center',
-        alignItems:'center',
-        backgroundColor:'#F5FCFF'
-    },
     iconStyle:{
-
+        width: Platform.OS === 'ios' ? 30 : 25,
+        height:Platform.OS === 'ios' ? 30 : 25
     }
-
 });
 
