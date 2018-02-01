@@ -15,19 +15,18 @@ import {
     StyleSheet,
     Platform,
     Image,
-} from 'react-native'
+} from 'react-native';
 
-
-let HomeViewController = require('../Home/HomeViewController');
-let ShopViewController = require('../Shop/ShopViewController');
-let ProfileViewController = require('../Profile/ProfileViewController');
-let MoreViewController = require('../More/MoreViewController');
+import HomeViewController from '../Home/HomeViewController';
+import ShopViewController from '../Shop/ShopViewController';
+import ProfileViewController from '../Profile/ProfileViewController';
+import MoreViewController from '../More/MoreViewController';
 
 export default class MainViewController extends Component {
     constructor(props){
         super(props);
         this.state = {
-            selectedTab:'home'
+            selectedTab:'home'// 默认是第一个
         };
     }
 

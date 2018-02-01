@@ -14,7 +14,7 @@ import {
     View
 } from 'react-native';
 
-class HomeDetailViewController extends Component {
+export default class HomeDetailViewController extends Component {
     render() {
         return (
             <View style={styles.container}>
@@ -39,6 +39,3 @@ const styles = StyleSheet.create({
         margin: 10,
     }
 });
-
-// 输出组件类
-module.exports = HomeDetailViewController;

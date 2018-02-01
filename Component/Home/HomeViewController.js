@@ -15,9 +15,9 @@ import {
     TouchableOpacity,
 } from 'react-native';
 
-let HomeDetailViewController = require('./HomeDetailViewController');
+import HomeDetailViewController from './HomeDetailViewController';
 
-class HomeViewController extends Component {
+export default class HomeViewController extends Component {
     render() {
         return <View style={styles.container}>
             <TouchableOpacity onPress={() => this.pushToDetail()}>
@@ -50,6 +50,3 @@ const styles = StyleSheet.create({
         margin: 10,
     }
 });
-
-// 输出组件类
-module.exports = HomeViewController;

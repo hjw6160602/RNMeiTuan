@@ -14,7 +14,7 @@ import {
     View
 } from 'react-native';
 
-class ShopViewController extends Component {
+export default class ShopViewController extends Component {
     render() {
         return (
             <View style={styles.container}>
@@ -40,6 +40,3 @@ const styles = StyleSheet.create({
         margin: 10,
     }
 });
-
-// 输出组件类
-module.exports = ShopViewController;
