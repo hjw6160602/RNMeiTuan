@@ -23,12 +23,9 @@ import ProfileViewController from '../Profile/ProfileViewController';
 import MoreViewController from '../More/MoreViewController';
 
 export default class MainViewController extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            selectedTab:'home'// 默认是第一个
-        };
-    }
+    state = {
+        selectedTab:'home',// 默认是第一个
+    };
 
     render(){
         return(
@@ -38,7 +35,7 @@ export default class MainViewController extends Component {
                     title='首页'
                     renderIcon={() => <Image source={{uri:'icon_tabbar_homepage'}} style={styles.iconStyle}/>}
                     renderSelectedIcon={() => <Image source={{uri:'icon_tabbar_homepage_selected'}} style={styles.iconStyle}/>}
-                    onPress={() => {this.setState({selectedTap:'home'})} }
+                    onPress={() => {this.setState({selectedTab:'home'})} }
                     selected={this.state.selectedTab === 'home'} >
                     <Navigator
                         initialRoute={{name:'home', component:HomeViewController}}
@@ -56,7 +53,7 @@ export default class MainViewController extends Component {
                     title='商家'
                     renderIcon={() => <Image source={{uri: 'icon_tabbar_merchant_normal'}} style={styles.iconStyle}/>} // 图标
                     renderSelectedIcon={() =><Image source={{uri: 'icon_tabbar_merchant_selected'}} style={styles.iconStyle}/>}   // 选中的图标
-                    onPress={() => {this.setState({selectedTap:'shop'})} }
+                    onPress={() => {this.setState({selectedTab:'shop'})} }
                     selected={this.state.selectedTab === 'shop'}>
                     <Navigator
                         initialRoute={{name:'shop', component:ShopViewController}}
@@ -74,7 +71,7 @@ export default class MainViewController extends Component {
                     title='我的'
                     renderIcon={() => <Image source={{uri: 'icon_tabbar_mine'}} style={styles.iconStyle}/>} // 图标
                     renderSelectedIcon={() =><Image source={{uri: 'icon_tabbar_mine_selected'}} style={styles.iconStyle}/>}   // 选中的图标
-                    onPress={() => {this.setState({selectedTap:'profile'})} }
+                    onPress={() => {this.setState({selectedTab:'profile'})} }
                     selected={this.state.selectedTab === 'profile'}>
                     <Navigator
                         initialRoute={{name:'profile', component:ProfileViewController}}
@@ -92,7 +89,7 @@ export default class MainViewController extends Component {
                     title='更多'
                     renderIcon={() => <Image source={{uri: 'icon_tabbar_misc'}} style={styles.iconStyle}/>} // 图标
                     renderSelectedIcon={() =><Image source={{uri: 'icon_tabbar_misc_selected'}} style={styles.iconStyle}/>}   // 选中的图标
-                    onPress={() => {this.setState({selectedTap:'more'})} }
+                    onPress={() => {this.setState({selectedTab:'more'})} }
                     selected={this.state.selectedTab === 'more'} >
                     <Navigator
                         initialRoute={{name:'more', component:MoreViewController}}
