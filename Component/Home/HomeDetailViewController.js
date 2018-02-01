@@ -1,8 +1,8 @@
 /**
- *  ProfileViewController.js
+ *  HomeDetailViewController.js
  *  RNMeiTuan
  *
- *  Created by SaiDicaprio on 18-1-31.
+ *  Created by SaiDicaprio on 18-2-11.
  *  Copyright (c) 2018 SaiDicaprio. All rights reserved.
  */
 
@@ -14,25 +14,24 @@ import {
     View
 } from 'react-native';
 
-class ProfileViewController extends Component {
+class HomeDetailViewController extends Component {
     render() {
         return (
             <View style={styles.container}>
                 <Text style={styles.welcome}>
-                    我的
+                    首页详情
                 </Text>
             </View>
         );
     }
 }
 
-
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#F5FCFF',
+        backgroundColor: 'cyan',
     },
     welcome: {
         fontSize: 20,
@@ -42,4 +41,4 @@ const styles = StyleSheet.create({
 });
 
 // 输出组件类
-module.exports = ProfileViewController;
+module.exports = HomeDetailViewController;

@@ -11,20 +11,30 @@ import React, { Component } from 'react';
 import {
     StyleSheet,
     Text,
-    View
+    View,
+    TouchableOpacity,
 } from 'react-native';
+
+let HomeDetailViewController = require('./HomeDetailViewController');
 
 class HomeViewController extends Component {
     render() {
-        return (
-            <View style={styles.container}>
+        return <View style={styles.container}>
+            <TouchableOpacity onPress={() => this.pushToDetail()}>
                 <Text style={styles.welcome}>
                     首页
                 </Text>
-            </View>
-        );
+            </TouchableOpacity>
+        </View>;
     }
-};
+
+    pushToDetail() {
+        this.props.navigator.push({
+            component: HomeDetailViewController, //要跳转的控制器
+            title: '详情页'
+        })
+    }
+}
 
 
 const styles = StyleSheet.create({

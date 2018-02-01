@@ -7,10 +7,12 @@
  */
 
 import React, {Component} from 'react';
+// 从0.44版本开始，Navigator被从核心组件库中剥离到了deprecated-custom-components的单独模块中
+import { Navigator } from 'react-native-deprecated-custom-components'
+
 import TabNavigator from 'react-native-tab-navigator'
 import {
     StyleSheet,
-    View,
     Platform,
     Image,
 } from 'react-native'
@@ -39,7 +41,16 @@ export default class MainViewController extends Component {
                     renderSelectedIcon={() => <Image source={{uri:'icon_tabbar_homepage_selected'}} style={styles.iconStyle}/>}
                     onPress={() => {this.setState({selectedTap:'home'})} }
                     selected={this.state.selectedTab === 'home'} >
-                    <HomeViewController/>
+                    <Navigator
+                        initialRoute={{name:'home', component:HomeViewController}}
+                        configureScene={()=>{
+                            return Navigator.SceneConfigs.PushFromRight;
+                        }}
+                        renderScene={(route,navigator) => {
+                            let  Component = route.component;
+                            return <Component {...route.passProps} navigator={navigator}/>
+                        }}
+                    />
                 </TabNavigator.Item>
                 {/*商家*/}
                 <TabNavigator.Item
@@ -48,7 +59,16 @@ export default class MainViewController extends Component {
                     renderSelectedIcon={() =><Image source={{uri: 'icon_tabbar_merchant_selected'}} style={styles.iconStyle}/>}   // 选中的图标
                     onPress={() => {this.setState({selectedTap:'shop'})} }
                     selected={this.state.selectedTab === 'shop'}>
-                    <ShopViewController/>
+                    <Navigator
+                        initialRoute={{name:'shop', component:ShopViewController}}
+                        configureScene={()=>{
+                            return Navigator.SceneConfigs.PushFromRight;
+                        }}
+                        renderScene={(route,navigator) => {
+                            let  Component = route.component;
+                            return <Component {...route.passProps} navigator={navigator}/>
+                        }}
+                    />
                 </TabNavigator.Item>
                 {/*我的*/}
                 <TabNavigator.Item
@@ -57,7 +77,16 @@ export default class MainViewController extends Component {
                     renderSelectedIcon={() =><Image source={{uri: 'icon_tabbar_mine_selected'}} style={styles.iconStyle}/>}   // 选中的图标
                     onPress={() => {this.setState({selectedTap:'profile'})} }
                     selected={this.state.selectedTab === 'profile'}>
-                    <ProfileViewController/>
+                    <Navigator
+                        initialRoute={{name:'profile', component:ProfileViewController}}
+                        configureScene={()=>{
+                            return Navigator.SceneConfigs.PushFromRight;
+                        }}
+                        renderScene={(route,navigator) => {
+                            let  Component = route.component;
+                            return <Component {...route.passProps} navigator={navigator}/>
+                        }}
+                    />
                 </TabNavigator.Item>
                 {/*更多*/}
                 <TabNavigator.Item
@@ -66,7 +95,16 @@ export default class MainViewController extends Component {
                     renderSelectedIcon={() =><Image source={{uri: 'icon_tabbar_misc_selected'}} style={styles.iconStyle}/>}   // 选中的图标
                     onPress={() => {this.setState({selectedTap:'more'})} }
                     selected={this.state.selectedTab === 'more'} >
-                    <MoreViewController/>
+                    <Navigator
+                        initialRoute={{name:'more', component:MoreViewController}}
+                        configureScene={()=>{
+                            return Navigator.SceneConfigs.PushFromRight;
+                        }}
+                        renderScene={(route,navigator) => {
+                            let  Component = route.component;
+                            return <Component {...route.passProps} navigator={navigator}/>
+                        }}
+                    />
                 </TabNavigator.Item>
             </TabNavigator>
         )
