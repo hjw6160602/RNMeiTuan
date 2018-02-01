@@ -24,7 +24,7 @@ class ShopViewController extends Component {
             </View>
         );
     }
-});
+};
 
 
 const styles = StyleSheet.create({

@@ -24,7 +24,7 @@ class ProfileViewController extends Component {
             </View>
         );
     }
-});
+};
 
 
 const styles = StyleSheet.create({

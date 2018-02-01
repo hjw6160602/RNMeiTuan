@@ -24,7 +24,7 @@ class HomeViewController extends Component {
             </View>
         );
     }
-});
+};
 
 
 const styles = StyleSheet.create({

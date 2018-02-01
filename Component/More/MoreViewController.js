@@ -24,7 +24,7 @@ class MoreViewController extends Component {
             </View>
         );
     }
-});
+};
 
 
 const styles = StyleSheet.create({
