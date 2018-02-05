@@ -47,7 +47,7 @@ export default class HomeViewController extends Component {
             <TouchableOpacity onPress={()=>{alert('点击了')}}>
                 <View style={styles.cityTxtViewStyle}>
                     <Text style={{color:'white'}}>
-                        齐齐哈尔
+                        上海
                     </Text>
                 </View>
             </TouchableOpacity>
@@ -72,7 +72,7 @@ export default class HomeViewController extends Component {
 }
 
 let width = Dimensions.get('window').width;
-let itemHeight
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -89,16 +89,14 @@ const styles = StyleSheet.create({
         // 设置侧轴的对齐方式: 垂直居中
         alignItems:'center',
         // 设置主轴的对齐方式
-        justifyContent:'space-space-between'
+        justifyContent:'space-between'
     },
 
     cityTxtViewStyle: {
         marginLeft:8,
         marginTop:20,
         height:40,
-        width:80,
-        justifyContent: 'center',
-        backgroundColor:'blue'
+        justifyContent: 'center'
     },
 
     navRightImgStyle:{ // 设置图片的大小
@@ -107,9 +105,7 @@ const styles = StyleSheet.create({
     },
 
     topInputStyle:{ // 设置输入框
-        marginLeft: 8,
-        marginRight: 8,
-        // width:width * 0.71,
+        width:width * 0.66,
         marginTop: Platform.OS === 'ios' ? 20 : 0,
         // 在不同平台上的高度
         height:Platform.OS === 'ios' ? 33 : 30,
@@ -123,7 +119,9 @@ const styles = StyleSheet.create({
 
     rightNavViewStyle:{
         flexDirection:'row',
-        height:64,
+        marginRight:8,
+        marginTop:20,
+        height:40,
         // 设置侧轴的对齐方式
         alignItems:'center'
     },
@@ -132,5 +130,6 @@ const styles = StyleSheet.create({
         fontSize: 20,
         textAlign: 'center',
         margin: 10,
+        backgroundColor:'pink'
     }
 });
