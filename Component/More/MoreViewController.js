@@ -29,12 +29,51 @@ export default class MoreViewController extends Component {
                 {this.renderNavBar()}
                 <ScrollView>
 
-                    <View style={{marginTop:20}}>
+                    <View style={{marginTop:8}}>
                         <RNTableViewCell
                             title = "扫一扫"
                         />
                     </View>
+                    <View style={{marginTop:8}}>
+                        <RNTableViewCell
+                            title="省流量模式"
+                            isSwitch={true}
+                        />
+                        <RNTableViewCell
+                            title="消息提醒"
+                        />
+                        <RNTableViewCell
+                            title="邀请好友使用码团"
+                        />
+                        <RNTableViewCell
+                            title="清空缓存"
+                            rightTitle="1.99M"
+                        />
+                    </View>
 
+                    <View style={{marginTop:8}}>
+                        <RNTableViewCell
+                            title="问卷调查"
+                        />
+                        <RNTableViewCell
+                            title="支付帮助"
+                        />
+                        <RNTableViewCell
+                            title="网络诊断"
+                        />
+                        <RNTableViewCell
+                            title="关于码团"
+                        />
+                        <RNTableViewCell
+                            title="我要应聘"
+                        />
+                    </View>
+
+                    <View style={{marginTop:8}}>
+                        <RNTableViewCell
+                            title="精品应用"
+                        />
+                    </View>
                 </ScrollView>
             </View>
         );
