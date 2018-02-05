@@ -11,8 +11,11 @@ import React, {Component} from 'react';
 import {
     View,
     Text,
-    StyleSheet,
+    Image,
+    Switch,
     Platform,
+    StyleSheet,
+    TouchableOpacity
 } from  'react-native';
 
 
@@ -21,6 +24,8 @@ export default class RNTableViewCell extends Component {
     //不报警告的正确写法 如果直接写 props:{} 会报警告
     static defaultProps = {
         title: "",  // 标题
+        isSwitch: false, // 是否展示开关
+        rightTitle: ''
     };
 
     propTypes: {
@@ -32,13 +37,48 @@ export default class RNTableViewCell extends Component {
     };
 
     render(){
-        return (<View style={styles.containerStyle}>
-            {/* 左边title部分 */}
-            <Text style={ {marginLeft: 8} }>
-                {this.props.title}
-            </Text>
+        return (
+            <TouchableOpacity>
+                <View style={styles.containerStyle}>
+                    {/* 左边title部分 */}
+                    <Text style={ {marginLeft: 8} }>
+                        {this.props.title}
+                    </Text>
 
-        </View>)
+                    {/* 右边的箭頭或者是Switch開關 */}
+                    {this.renderRightView()}
+                </View>
+            </TouchableOpacity>
+        )
+    }
+    renderRightView() {
+        // 判断
+        if (this.props.isSwitch){ // true
+            return(
+                <Switch value={this.state.isOn === true}
+                        onValueChange={()=>{this.setState({isOn: !this.state.isOn})}}
+                        style={{marginRight:8}}
+                />
+            )
+        } else{
+            return(
+                <View style={{flexDirection:'row', alignItems:'center'}}>
+                    {this.rightTitle()}
+                    <Image source={{uri: 'icon_cell_rightArrow'}}
+                           style={styles.accessoryIndicatorStyle}/>
+                </View>
+            )
+        }
+    }
+
+    rightTitle(){
+        if(this.props.rightTitle.length > 0){
+            return(
+                <Text style={ {color:'gray', marginRight:8} }>
+                    {this.props.rightTitle}
+                </Text>
+            )
+        }
     }
 }
 
@@ -56,5 +96,10 @@ const styles = StyleSheet.create({
         alignItems:'center'
     },
 
-});
+    accessoryIndicatorStyle:{
+        width:8,
+        height:13,
+        marginRight:8
+    }
 
+});
