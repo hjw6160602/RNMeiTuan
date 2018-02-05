@@ -21,15 +21,12 @@ import {
 
 import HomeDetailViewController from './HomeDetailViewController';
 
-let {width, height} = Dimensions.get('window');
-
 export default class HomeViewController extends Component {
     render() {
         return <View style={styles.container}>
             {/*首页的导航条*/}
             {this.renderNaviBar()}
             <TouchableOpacity onPress={() => this.pushToDetail()}>
-
                 <Text style={styles.welcome}>
                     首页
                 </Text>
@@ -46,12 +43,22 @@ export default class HomeViewController extends Component {
 
     renderNaviBar() {
         return(<View style={styles.navBarStyle}>
-            <Text style={{color:'white'}}>上海</Text>
+            {/*左边的定位城市*/}
+            <TouchableOpacity onPress={()=>{alert('点击了')}}>
+                <View style={styles.cityTxtViewStyle}>
+                    <Text style={{color:'white'}}>
+                        齐齐哈尔
+                    </Text>
+                </View>
+            </TouchableOpacity>
+
+            {/*中间的输入框*/}
             <TextInput
                 placeholder="输入商家、品类、商圈"
                 style={styles.topInputStyle}
             />
-            {/*右边*/}
+
+            {/*右边的两个BarButtonItem*/}
             <View style={styles.rightNavViewStyle}>
                 <TouchableOpacity onPress={()=>{alert('点击了')}}>
                     <Image source={{uri:'icon_homepage_message'}} style={styles.navRightImgStyle}/>
@@ -64,7 +71,8 @@ export default class HomeViewController extends Component {
     }
 }
 
-
+let width = Dimensions.get('window').width;
+let itemHeight
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -72,16 +80,25 @@ const styles = StyleSheet.create({
     },
 
     navBarStyle:{ // 导航条样式
+        // 根据不同平台设置其高度
         height: Platform.OS === 'ios' ? 64 : 44,
+        // 设置NavigationBar的背景颜色
         backgroundColor:'rgba(255,96,0,1.0)',
-
         // 设置主轴的方向
         flexDirection:'row',
-        // 垂直居中 ---> 设置侧轴的对齐方式
+        // 设置侧轴的对齐方式: 垂直居中
         alignItems:'center',
-
         // 设置主轴的对齐方式
-        justifyContent:'space-around'
+        justifyContent:'space-space-between'
+    },
+
+    cityTxtViewStyle: {
+        marginLeft:8,
+        marginTop:20,
+        height:40,
+        width:80,
+        justifyContent: 'center',
+        backgroundColor:'blue'
     },
 
     navRightImgStyle:{ // 设置图片的大小
@@ -90,21 +107,22 @@ const styles = StyleSheet.create({
     },
 
     topInputStyle:{ // 设置输入框
-        width:width * 0.71,
-        height:Platform.OS === 'ios' ? 35 : 30,
+        marginLeft: 8,
+        marginRight: 8,
+        // width:width * 0.71,
+        marginTop: Platform.OS === 'ios' ? 20 : 0,
+        // 在不同平台上的高度
+        height:Platform.OS === 'ios' ? 33 : 30,
+        // 背景颜色
         backgroundColor:'white',
-        marginTop: Platform.OS === 'ios' ? 18 : 0,
-
         // 设置圆角
         borderRadius:17,
-
         // 内左边距
         paddingLeft:10
     },
 
     rightNavViewStyle:{
         flexDirection:'row',
-        // backgroundColor:'blue',
         height:64,
         // 设置侧轴的对齐方式
         alignItems:'center'
