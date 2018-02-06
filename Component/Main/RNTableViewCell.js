@@ -84,7 +84,7 @@ export default class RNTableViewCell extends Component {
 
 const styles = StyleSheet.create({
     containerStyle:{
-        height:Platform.OS === 'ios' ? 40: 30,
+        height:Platform.OS === 'ios' ? 44: 38,
         backgroundColor:'white',
         borderBottomColor:'#dddddd',
         borderBottomWidth:0.5,
