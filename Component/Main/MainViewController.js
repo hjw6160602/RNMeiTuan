@@ -24,7 +24,7 @@ import MoreViewController from '../More/MoreViewController';
 
 export default class MainViewController extends Component {
     state = {
-        selectedTab:'more',// 默认是第一个
+        selectedTab:'home',// 默认是第一个
     };
 
     render(){

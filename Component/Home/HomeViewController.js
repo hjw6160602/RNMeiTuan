@@ -20,12 +20,18 @@ import {
 } from 'react-native';
 
 import HomeDetailViewController from './HomeDetailViewController';
+import HomeChanelFlatList from './HomeChanelFlatList';
 
 export default class HomeViewController extends Component {
     render() {
         return <View style={styles.container}>
+
             {/*首页的导航条*/}
             {this.renderNaviBar()}
+
+            {/*顶部的频道页入口*/}
+            <HomeChanelFlatList style={styles.flatListStyle}/>
+
             <TouchableOpacity onPress={() => this.pushToDetail()}>
                 <Text style={styles.welcome}>
                     首页
@@ -76,6 +82,7 @@ let width = Dimensions.get('window').width;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+
         backgroundColor: '#F5FCFF',
     },
 
@@ -126,10 +133,16 @@ const styles = StyleSheet.create({
         alignItems:'center'
     },
 
+
+    flatListStyle:{
+        margin:0,
+        height:150
+    },
+
     welcome: {
         fontSize: 20,
         textAlign: 'center',
-        margin: 10,
+        margin: 8,
         backgroundColor:'pink'
     }
 });

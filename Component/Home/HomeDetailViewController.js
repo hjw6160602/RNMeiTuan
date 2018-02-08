@@ -2,7 +2,7 @@
  *  HomeDetailViewController.js
  *  RNMeiTuan
  *
- *  Created by SaiDicaprio on 18-2-11.
+ *  Created by SaiDicaprio on 18-2-2.
  *  Copyright (c) 2018 SaiDicaprio. All rights reserved.
  */
 
