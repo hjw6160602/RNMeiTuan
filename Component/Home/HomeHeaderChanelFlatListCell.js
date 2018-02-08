@@ -16,12 +16,12 @@ import {
 export default class HomeHeaderChanelFlatListCell extends React.PureComponent {
     static defaultProps = {
         id:'',
-        title:''
+        title:""
     };
 
-    // _onPress = () => {
-    //     this.props.onPressItem(this.props.id);
-    // };
+    _onPress = () => {
+        // this.props.onPressItem(this.props.id);
+    };
 
     render() {
         return (
@@ -30,7 +30,7 @@ export default class HomeHeaderChanelFlatListCell extends React.PureComponent {
                 onPress={this._onPress}
             >
                 <Text>
-                   testData
+                    {this.props.title}
                 </Text>
             </View>
         )
@@ -40,4 +40,4 @@ export default class HomeHeaderChanelFlatListCell extends React.PureComponent {
 const styles = StyleSheet.create({
 
 
-})
+});
